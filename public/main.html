@@ -1,22 +1,42 @@
 <html ng-app>
 <body>
-    <form ng-controller='appController' ng-submit="send()">
-      <!--send() function from the controller is called on form submission -->
-        <textarea ng-model='data.textdata'></textarea>
-        <pre>{{data.textdata}}</pre>
-        <input type="submit" ngClick="Submit">
-        <div><pre>{{response.data}}</pre>
-        </div>
-        <ng-form>		
+	<div ng-controller='appController'>
+        <textarea ng-model='data.textdata'>{{data.textdata}}</textarea>
+		
+		<br><!--I may be able to condense this with a creative ng-repeat-->
+		<button ng-click='appendInput("7")'>7</button>
+		<button ng-click='appendInput("8")'>8</button>
+		<button ng-click='appendInput("9")'>9</button>
+		<button ng-click='appendInput("/")'>/</button>
+		<br>
+		<button ng-click='appendInput("4")'>4</button>
+		<button ng-click='appendInput("5")'>5</button>
+		<button ng-click='appendInput("6")'>6</button>
+		<button ng-click='appendInput("*")'>*</button>
+		<br>
+		<button ng-click='appendInput("1")'>1</button>
+		<button ng-click='appendInput("2")'>2</button>
+		<button ng-click='appendInput("3")'>3</button>
+		<button ng-click='appendInput("-")'>-</button>
+		<br>
+		<button ng-click='appendInput("0")'>0</button>
+		<!--<button ng-click='appendInput(".")'>.</button>-->
+		<button ng-click='send()'>=</button>
+		<button ng-click='appendInput("+")'>+</button>
+	</div>		
 
     <script src="angular-1.2.17.js">
     </script>
     <script>
         function appController($scope, $http) {
             /*$http directive is used to communicate to the server */
-            $scope.data = {}
-            $scope.response = {}
+            $scope.data = { textdata: '' };
+            $scope.response = {};
 
+			$scope.appendInput = function(input) {
+				$scope.data.textdata=$scope.data.textdata+input;
+			}
+			
             $scope.send = function () {
                 /*executed when submit is clicked*/
                 console.log("inside click");
@@ -29,14 +49,14 @@
                     data: $scope.data,
 
                     processData: false
-                })
+                });
                 posting.success(function (response) {
                     /*executed when server responds back*/
                     console.log(response);
-                    $scope.response.data = response;
+                    $scope.data.textdata = response;
                 });
-            }
-        };
+            };
+        }
     </script>
 </body>
 
