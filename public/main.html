@@ -22,6 +22,7 @@
 		<button ng-click='appendInput("0")'>0</button>
 		<!--<button ng-click='appendInput(".")'>.</button>-->
 		<button ng-click='send()'>=</button>
+		<button ng-click='clear()'>C</button>
 		<button ng-click='appendInput("+")'>+</button>
 	</div>		
 
@@ -35,6 +36,10 @@
 
 			$scope.appendInput = function(input) {
 				$scope.data.textdata=$scope.data.textdata+input;
+			}
+			
+			$scope.clear = function () {
+				$scope.data.textdata='';
 			}
 			
             $scope.send = function () {
