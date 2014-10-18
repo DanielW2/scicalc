@@ -13,8 +13,7 @@ app.post('/post', function (req, res) {
     /* Handling the AngularJS post request*/
     console.log(req.body);
 	
-	var rpn = sy(String(req.body.textdata));			//sent data into shunting yard
-	var result = rpn.read();	//process data string into answer
+	var result = sy.compute(req.body.textdata);    //send data into shunting yard
 	console.log(result);		//just for debugging purposes	
 	
     res.setHeader('Content-Type', 'application/json');
