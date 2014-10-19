@@ -5,11 +5,23 @@ function appController($scope, $http) {
 
 	$scope.appendInput = function(input) {
 		$scope.data.textdata=$scope.data.textdata+input;
-	}
+	};
 	
 	$scope.clear = function () {
 		$scope.data.textdata='';
-	}
+	};
+	
+	$scope.addLabel = function () {
+	    if (document.getElementsByClassName('symbol').style.display === 'none')
+		    document.getElementsByClassName('symbol').style.display = 'inline';
+		else
+		    document.getElementsByClassName('symbol').style.display = 'none';
+			
+		if (document.getElementById('io').style.display === 'none')
+		    document.getElementById('io').style.display = 'inline';
+		else
+		    document.getElementById('io').style.display = 'none';
+	};
 	
 	$scope.send = function () {
 		/*executed when submit is clicked*/
