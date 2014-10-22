@@ -2,7 +2,7 @@ function appController($scope, $http) {
 	/*$http directive is used to communicate to the server */
 	$scope.data = { textdata: '' };
 	$scope.response = {};
-	$scope.statments = {};
+	$scope.statements = {};
 
 	$scope.appendInput = function(input) {
 		$scope.data.textdata=$scope.data.textdata+input;
@@ -28,10 +28,7 @@ function appController($scope, $http) {
 	};
 	
 	$scope.saveLabel = function () {
-		$scope.statments[$scope.label] =  $scope.statement;
-		for (items in $scope.statments) {
-		    console.log(items + " : " + $scope.statments[items]);
-		}
+		$scope.statements[$scope.label] =  $scope.statement;
 	};
 	
 	$scope.send = function () {

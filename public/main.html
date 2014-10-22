@@ -38,15 +38,10 @@
 		<button ng-click='send()'>=</button>
 		<button ng-click='clear()'>C</button>
 		<button ng-click='appendInput("+")'>+</button>
-		<!--
 		<br>
-		{{label}} : {{statement}}
-		<br>
-		{{statements.label}} : {{statements.statement}}-->
-		<div ng-repeat="items in statements">
-			{{statements.items}}
-			<br>
-			{{statements.y}}
+		
+		<div ng-repeat="(label,statement) in statements">
+			{{label}} : {{statement}}
 		</div>
 	</div>		
 </body>
