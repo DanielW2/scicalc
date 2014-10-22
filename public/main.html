@@ -41,7 +41,7 @@
 		<br>
 		
 		<div ng-repeat="(label,statement) in statements">
-			{{label}} : {{statement}}
+			<button ng-click='appendInput(label)'>{{label}}</button>
 		</div>
 	</div>		
 </body>
