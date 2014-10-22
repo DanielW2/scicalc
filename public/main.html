@@ -11,7 +11,7 @@
 		<textarea ng-model='label' cols = 4 rows=1 placeholder='label' class='symbol' style='display : none'>
 			{{label}}
 		</textarea>
-		<textarea ng-model='statement' cols = 10 rows=1 placeholder='statement' class='symbol' style='display : none'>
+		<textarea ng-model='statement' cols = 11 rows=1 placeholder='statement' class='symbol' style='display : none'>
 			{{statement}}
 		</textarea>
 		
@@ -20,12 +20,13 @@
 		<button ng-click='appendInput("8")'>8</button>
 		<button ng-click='appendInput("9")'>9</button>
 		<button ng-click='appendInput("/")'>/</button>
-		<button ng-click='addLabel()'>new</button>
+		<button ng-click='swapUI()'>new</button>
 		<br>
 		<button ng-click='appendInput("4")'>4</button>
 		<button ng-click='appendInput("5")'>5</button>
 		<button ng-click='appendInput("6")'>6</button>
 		<button ng-click='appendInput("*")'>*</button>
+		<button ng-click='saveLabel()'>save</button>
 		<br>
 		<button ng-click='appendInput("1")'>1</button>
 		<button ng-click='appendInput("2")'>2</button>
@@ -33,10 +34,20 @@
 		<button ng-click='appendInput("-")'>-</button>
 		<br>
 		<button ng-click='appendInput("0")'>0</button>
-		<!--<button ng-click='appendInput(".")'>.</button>-->
+		<button ng-click='appendInput(".")'>.</button>
 		<button ng-click='send()'>=</button>
 		<button ng-click='clear()'>C</button>
 		<button ng-click='appendInput("+")'>+</button>
+		<!--
+		<br>
+		{{label}} : {{statement}}
+		<br>
+		{{statements.label}} : {{statements.statement}}-->
+		<div ng-repeat="items in statements">
+			{{statements.items}}
+			<br>
+			{{statements.y}}
+		</div>
 	</div>		
 </body>
 

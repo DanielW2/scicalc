@@ -2,6 +2,7 @@ function appController($scope, $http) {
 	/*$http directive is used to communicate to the server */
 	$scope.data = { textdata: '' };
 	$scope.response = {};
+	$scope.statments = {};
 
 	$scope.appendInput = function(input) {
 		$scope.data.textdata=$scope.data.textdata+input;
@@ -11,23 +12,14 @@ function appController($scope, $http) {
 		$scope.data.textdata='';
 	};
 	
-	$scope.addLabel = function () {
-	/*
-	    elements = document.getElementsByClassName(x);
-    for (var i = 0; i < elements.length; i++) {
-        elements[i].style.backgroundColor="blue";
-    }
-	*/
-		//forms = document.getElementsByClassName('symbol');
-	    if (document.getElementsByClassName('symbol')[0].style.display === 'none')
-		    document.getElementsByClassName('symbol')[0].style.display = 'inline';
-		else
-		    document.getElementsByClassName('symbol')[0].style.display = 'none';
-			
-	    if (document.getElementsByClassName('symbol')[1].style.display === 'none')
-		    document.getElementsByClassName('symbol')[1].style.display = 'inline';
-		else
-		    document.getElementsByClassName('symbol')[1].style.display = 'none';
+	$scope.swapUI = function () {
+		var statementForms = document.getElementsByClassName('symbol');
+		for (var i = 0; i < statementForms.length; i++) {
+			if (document.getElementsByClassName('symbol')[i].style.display === 'none')
+				document.getElementsByClassName('symbol')[i].style.display = 'inline';
+			else
+				document.getElementsByClassName('symbol')[i].style.display = 'none';
+		}
 			
 		if (document.getElementById('io').style.display === 'none')
 		    document.getElementById('io').style.display = 'inline';
@@ -35,11 +27,15 @@ function appController($scope, $http) {
 		    document.getElementById('io').style.display = 'none';
 	};
 	
+	$scope.saveLabel = function () {
+		$scope.statments[$scope.label] =  $scope.statement;
+		for (items in $scope.statments) {
+		    console.log(items + " : " + $scope.statments[items]);
+		}
+	};
+	
 	$scope.send = function () {
 		/*executed when submit is clicked*/
-		console.log("inside click");
-		console.log($scope.data.textdata);
-
 		var posting = $http({
 			method: 'POST',
 			/*posting to /post */
