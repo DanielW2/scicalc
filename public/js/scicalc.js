@@ -12,10 +12,22 @@ function appController($scope, $http) {
 	};
 	
 	$scope.addLabel = function () {
-	    if (document.getElementsByClassName('symbol').style.display === 'none')
-		    document.getElementsByClassName('symbol').style.display = 'inline';
+	/*
+	    elements = document.getElementsByClassName(x);
+    for (var i = 0; i < elements.length; i++) {
+        elements[i].style.backgroundColor="blue";
+    }
+	*/
+		//forms = document.getElementsByClassName('symbol');
+	    if (document.getElementsByClassName('symbol')[0].style.display === 'none')
+		    document.getElementsByClassName('symbol')[0].style.display = 'inline';
 		else
-		    document.getElementsByClassName('symbol').style.display = 'none';
+		    document.getElementsByClassName('symbol')[0].style.display = 'none';
+			
+	    if (document.getElementsByClassName('symbol')[1].style.display === 'none')
+		    document.getElementsByClassName('symbol')[1].style.display = 'inline';
+		else
+		    document.getElementsByClassName('symbol')[1].style.display = 'none';
 			
 		if (document.getElementById('io').style.display === 'none')
 		    document.getElementById('io').style.display = 'inline';
