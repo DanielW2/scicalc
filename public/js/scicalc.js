@@ -31,8 +31,18 @@ function appController($scope, $http) {
 		$scope.statements[$scope.label] =  $scope.statement;
 	};
 	
+	String.prototype.replaceAll = function(s,r){
+		return this.split(s).join(r);
+	};
+	
 	$scope.send = function () {
 		/*executed when submit is clicked*/
+
+		for (var label in $scope.statements) {
+			$scope.data.textdata = $scope.data.textdata.replaceAll(label, $scope.statements[label]);
+		}
+		console.log($scope.data);		
+		
 		var posting = $http({
 			method: 'POST',
 			/*posting to /post */
