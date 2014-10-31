@@ -1,7 +1,20 @@
 <html ng-app>
+
+<!--Jasmine-->
+<link rel="shortcut icon" type="image/png" href="jasmine/lib/jasmine-2.0.3/jasmine_favicon.png">
+<link rel="stylesheet" type="text/css" href="jasmine/lib/jasmine-2.0.3/jasmine.css"> 
+
+<script type="text/javascript" src="jasmine/lib/jasmine-2.0.3/jasmine.js"></script>
+<script type="text/javascript" src="jasmine/lib/jasmine-2.0.3/jasmine-html.js"></script>
+<script type="text/javascript" src="jasmine/lib/jasmine-2.0.3/boot.js"></script>
+
+<script type="text/javascript" src="jasmine/spec/SpecScicalc.js"></script>
+
+<script src="js/angular-1.2.17.js"></script>
+<script src="js/scicalc.js"></script>
 <link rel="stylesheet" href="css/styles.css">
-<script src="./js/angular-1.2.17.js"></script>
-<script src="./js/scicalc.js"></script>
+
+
 <body>
 	<div ng-controller='appController'>
         <textarea ng-model='data.textdata' cols=17 rows=1 id='io' style='display : inline'>

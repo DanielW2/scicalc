@@ -3,6 +3,8 @@ function appController($scope, $http) {
 	$scope.data = { textdata: '' };
 	$scope.response = {};
 	$scope.statements = {};
+	
+	$scope.testValue = 'Success!';
 
 	$scope.appendInput = function(input) {
 		$scope.data.textdata=$scope.data.textdata+input;
