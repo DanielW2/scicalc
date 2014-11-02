@@ -33,15 +33,15 @@ function appController($scope, $http) {
 		$scope.statements[$scope.label] =  $scope.statement;
 	};
 	
-	String.prototype.replaceAll = function(s,r){
-		return this.split(s).join(r);
+	$scope.replaceAll = function(original, s, r){
+		return original.split(s).join(r);
 	};
 	
 	$scope.send = function () {
 		/*executed when submit is clicked*/
 
 		for (var label in $scope.statements) {
-			$scope.data.textdata = $scope.data.textdata.replaceAll(label, $scope.statements[label]);
+			$scope.data.textdata = $scope.replaceAll($scope.data.textdata, label, $scope.statements[label]);
 		}
 		console.log($scope.data);		
 		
