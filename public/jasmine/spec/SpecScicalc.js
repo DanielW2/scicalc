@@ -1,28 +1,23 @@
 describe('Test appController', function(){	
-	it('Should appendInput to data', function(){
+    beforeEach(function() {
 		$scope = {
 		  $on: function() {}
 		}
 		ctrl =  new appController($scope);
+    });
+
+	it('Should appendInput to data', function(){
 		$scope.appendInput('42');
 		expect($scope.data.textdata).toBe('42');
 	})	
 	
 	it('Should clear data', function(){
-		$scope = {
-		  $on: function() {}
-		}
-		ctrl =  new appController($scope);
 		$scope.appendInput('42');
 		$scope.clear();
 		expect($scope.data.textdata).toBe('');
 	})
 
 	it('Should swap the ui', function(){
-		$scope = {
-		  $on: function() {}
-		}
-		ctrl =  new appController($scope);
 		expect(document.getElementById('io').style.display).toBe('inline');
 		expect(document.getElementsByClassName('symbol')[0].style.display).toBe('none');
 		expect(document.getElementsByClassName('symbol')[1].style.display).toBe('none');		
@@ -37,10 +32,6 @@ describe('Test appController', function(){
 	})
 	
 	it('Should save statements into labels', function(){
-		$scope = {
-		  $on: function() {}
-		}
-		ctrl =  new appController($scope);
 		$scope.label = 'x';
 		$scope.statement = '2+2';
 		$scope.saveLabel();
@@ -48,10 +39,15 @@ describe('Test appController', function(){
 	})	
 	
 	it('Should replace labels with statements', function(){
-		$scope = {
-		  $on: function() {}
-		}
-		ctrl =  new appController($scope);
-		expect($scope.replaceAll('14/x', 'x', '2+5')).toBe('14/2+5');
+		expect(replaceAll('14/x', 'x', '2+5')).toBe('14/2+5');
 	})	
+	
+	it('Should finalize the statement for evaluation', function(){
+		$scope.appendInput('x+5');
+		$scope.label = 'x';
+		$scope.statement = '2';
+		$scope.saveLabel();		
+		finalize();
+		expect($scope.data.textdata).toBe('2+5');
+	})		
 })

@@ -33,17 +33,18 @@ function appController($scope, $http) {
 		$scope.statements[$scope.label] =  $scope.statement;
 	};
 	
-	$scope.replaceAll = function(original, s, r){
+	replaceAll = function(original, s, r){
 		return original.split(s).join(r);
 	};
 	
+	finalize = function() {
+		for (var label in $scope.statements) {//This should be moved to it's own function
+			$scope.data.textdata = replaceAll($scope.data.textdata, label, $scope.statements[label]);
+		}	
+	};
+	
 	$scope.send = function () {
-		/*executed when submit is clicked*/
-
-		for (var label in $scope.statements) {
-			$scope.data.textdata = $scope.replaceAll($scope.data.textdata, label, $scope.statements[label]);
-		}
-		console.log($scope.data);		
+		finalize();
 		
 		var posting = $http({
 			method: 'POST',
@@ -55,7 +56,6 @@ function appController($scope, $http) {
 		});
 		posting.success(function (response) {
 			/*executed when server responds back*/
-			console.log(response);
 			$scope.data.textdata = response;
 		});
 	};
