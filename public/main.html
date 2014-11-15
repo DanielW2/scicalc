@@ -29,17 +29,29 @@
 		</textarea>
 		
 		<br><!--I may be able to condense this with a creative ng-repeat-->
+		
+		<button ng-click='swapUI()'>new</button>
+		<button ng-click='saveLabel()'>save</button>
+		<button ng-click='backspace()'>&ltx</button>
+		<br>
+		
+		<button ng-click='appendInput("(")'>(</button>
+		<button ng-click='appendInput(")")'>)</button>
+		<button ng-click='clear()'>C</button>
+		<button ng-click='appendInput("%")'>%</button>
+		<br>
+		
 		<button ng-click='appendInput("7")'>7</button>
 		<button ng-click='appendInput("8")'>8</button>
 		<button ng-click='appendInput("9")'>9</button>
 		<button ng-click='appendInput("/")'>/</button>
-		<button ng-click='swapUI()'>new</button>
+		
 		<br>
 		<button ng-click='appendInput("4")'>4</button>
 		<button ng-click='appendInput("5")'>5</button>
 		<button ng-click='appendInput("6")'>6</button>
 		<button ng-click='appendInput("*")'>*</button>
-		<button ng-click='saveLabel()'>save</button>
+		
 		<br>
 		<button ng-click='appendInput("1")'>1</button>
 		<button ng-click='appendInput("2")'>2</button>
@@ -49,7 +61,7 @@
 		<button ng-click='appendInput("0")'>0</button>
 		<button ng-click='appendInput(".")'>.</button>
 		<button ng-click='send()'>=</button>
-		<button ng-click='clear()'>C</button>
+		
 		<button ng-click='appendInput("+")'>+</button>
 		<br>
 		
