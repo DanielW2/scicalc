@@ -1,3 +1,17 @@
 textarea {
 	resize: none;
 }
+
+#calculator {
+	text-align: center;
+	background-color: tan;
+	width: 100%;
+	cursor: default;
+}
+
+td {
+	border-style: solid;
+	border-width: .1em;
+	border-color: black;
+	padding: .25em 0em;
+}
