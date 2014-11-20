@@ -5,19 +5,6 @@ function appController($scope, $http) {
 	$scope.statements = {};
 	
 	$scope.testValue = 'Success!';
-/*
-	viewportwidth = 0;
-	viewportheight = 0;
-	  
-	 // the more standards compliant browsers (mozilla/netscape/opera/IE7) use window.innerWidth and window.innerHeight
-	  
-	 if (typeof window.innerWidth != 'undefined')
-	 {
-		  viewportwidth = window.innerWidth;
-		  viewportheight = window.innerHeight;
-	 }
-	
-	document.body.style.height = viewportheight-60;*/
 	
 	$scope.appendInput = function(input) {
 		$scope.data.textdata=$scope.data.textdata+input;
@@ -75,9 +62,10 @@ function appController($scope, $http) {
 }
 
 window.onload = function(event) {
-	document.body.style.height = window.innerHeight - 60;
+	document.body.style.height = window.innerHeight - 200;
+	document.body.style.fontSize = getEmPixels();
 }
 
 window.onresize = function(event) {
-	document.body.style.height = window.innerHeight - 60;
+	document.body.style.height = window.innerHeight - 200;
 }
