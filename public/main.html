@@ -3,13 +3,13 @@
 <!--Jasmine-->
 <link rel="shortcut icon" type="image/png" href="jasmine/lib/jasmine-2.0.3/jasmine_favicon.png">
 <link rel="stylesheet" type="text/css" href="jasmine/lib/jasmine-2.0.3/jasmine.css"> 
-
+<!--
 <script type="text/javascript" src="jasmine/lib/jasmine-2.0.3/jasmine.js"></script>
 <script type="text/javascript" src="jasmine/lib/jasmine-2.0.3/jasmine-html.js"></script>
 <script type="text/javascript" src="jasmine/lib/jasmine-2.0.3/boot.js"></script>
 
 <script type="text/javascript" src="jasmine/spec/SpecScicalc.js"></script>
-
+-->
 <script src="js/angular-1.2.17.js"></script>
 <script src="js/scicalc.js"></script>
 <link rel="stylesheet" href="css/styles.css">
@@ -17,7 +17,7 @@
 
 <body>
 	<div ng-controller='appController'>
-        <textarea ng-model='data.textdata' cols=17 rows=1 id='io' style='display : inline'>
+        <textarea ng-model='data.textdata' cols=10 rows=1 id='io' style='display : inline'>
 			{{data.textdata}}
 		</textarea>
 		
@@ -33,16 +33,22 @@
 		<table id="calculator">
 			
 			<tr>
+			<!--
 				<td ng-click='swapUI()'>new</td>
-				<td ng-click='saveLabel()'>save</td>
-				<td ng-click='backspace()'>&ltx</td>
+				<td ng-click='saveLabel()'>save</td>-->
+				<td><em>X<sup>y</sup></em></td>
+				<td>√</td>				
+				<td><em>X<sup>2</sup></em></td>
+				<td ng-click='appendInput("%")'>%</td>
+				<td>A</td>
 			</tr>
 			
 			<tr>
 				<td ng-click='appendInput("(")'>(</td>
 				<td ng-click='appendInput(")")'>)</td>
-				<td ng-click='clear()'>C</td>
-				<td ng-click='appendInput("%")'>%</td>
+				<td ng-click='clear()'><em>Clr</em></td>
+				<td ng-click='backspace()'>&#8656</td>
+				<td>B</td>
 			</tr>
 			
 			<tr>
@@ -50,6 +56,7 @@
 				<td ng-click='appendInput("8")'>8</td>
 				<td ng-click='appendInput("9")'>9</td>
 				<td ng-click='appendInput("/")'>/</td>
+				<td>C</td>
 			</tr>
 			
 			<tr>
@@ -57,6 +64,7 @@
 				<td ng-click='appendInput("5")'>5</td>
 				<td ng-click='appendInput("6")'>6</td>
 				<td ng-click='appendInput("*")'>*</td>
+				<td>X</td>
 			</tr>
 			
 			<tr>
@@ -64,6 +72,7 @@
 				<td ng-click='appendInput("2")'>2</td>
 				<td ng-click='appendInput("3")'>3</td>
 				<td ng-click='appendInput("-")'>-</td>
+				<td>Y</td>
 			</tr>
 			
 			<tr>
@@ -71,6 +80,7 @@
 				<td ng-click='appendInput(".")'>.</td>
 				<td ng-click='send()'>=</td>
 				<td ng-click='appendInput("+")'>+</td>
+				<td>Z</td>
 			</tr>
 		</table>
 		<br>
